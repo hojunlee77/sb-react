@@ -1,6 +1,8 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
+import "./Header.module.css";
+import logo from "../assets/logo.jpg";
 
 const Header = styled.header`
   position: fixed;
@@ -10,33 +12,55 @@ const Header = styled.header`
   height: 80px;
   display: flex;
   align-items: center;
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.74);
+  background-color: white;
+  padding-bottom: 5px;
+  z-index: 100;
 `;
 
 const List = styled.ul`
+  width: 100%;
   display: flex;
+  justify-content: space-between;
 `;
 
-const Item = styled.li`
+const ItemIcon = styled.li`
   width: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  color: ${(props) => (props.current ? "#dab555" : "#333333")};
-  transition: color 0.5s ease-in-out;
+  color: "#333333";
+  transition: 0.2s ease-in-out;
+  :hover {
+    opacity: 0.5;
+  }
 `;
 
-const SLink = styled(Link)``;
+const ItemLogo = styled.li`
+  display: flex;
+  align-items: center;
+  width: 30%;
+`;
+
+const Img = styled.img`
+  width: 100%;
+  max-height: 75px;
+`;
 
 export default withRouter(({ location: { pathname } }) => (
   <Header>
     <List>
-      <Item current={pathname === "/"}>
-        <SLink to="/">Home</SLink>
-      </Item>
-      <Item current={pathname === "/about"}>
-        <SLink to="/about">About Us</SLink>
-      </Item>
+      <ItemLogo>
+        <a href="/">
+          <Img src={logo} alt="logo"></Img>
+        </a>
+      </ItemLogo>
+      <ItemIcon>
+        <a href="https://www.instagram.com/secondbreeze_vegan/">
+          <i class="xi-instagram xi-2x"></i>
+        </a>
+      </ItemIcon>
     </List>
   </Header>
 ));
