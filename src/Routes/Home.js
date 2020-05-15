@@ -14,7 +14,9 @@ import cakeSlider3 from "../assets/cakeSlider3.jpg";
 import cakeSlider4 from "../assets/cakeSlider4.jpg";
 import { Link } from "react-router-dom";
 
-const Container = styled.div``;
+const Container = styled.div`
+  height: 200vh;
+`;
 
 const Section = styled.div`
   display: flex;
@@ -32,7 +34,6 @@ const Main = styled.img`
 
 const Div = styled.div`
   display: flex;
-  justify-content: space-between;
   z-index: -1;
 `;
 
@@ -51,7 +52,8 @@ const Textbox = styled.div`
 `;
 
 const Img = styled.img`
-  width: 60%;
+  max-width: 100%;
+  height: auto;
 `;
 
 const Title = styled.h1`
@@ -114,7 +116,7 @@ export default () => (
     </Div>
     <Div>
       <Graphic>
-        <AwesomeSlider>
+        <AwesomeSlider bullets={false}>
           <div data-src={slider1} />
           <div data-src={slider2} />
           <div data-src={slider3} />
@@ -133,7 +135,7 @@ export default () => (
         <SLink to="https://forms.gle/R6HowwzpiLVqL7tx7">케이크 주문하기</SLink>
       </TextboxSlider>
       <Graphic>
-        <AwesomeSlider>
+        <AwesomeSlider bullets={false}>
           <div data-src={cakeSlider1} />
           <div data-src={cakeSlider2} />
           <div data-src={cakeSlider3} />

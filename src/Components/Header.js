@@ -20,6 +20,7 @@ const Header = styled.header`
 
 const List = styled.ul`
   width: 100%;
+  max-height: 80px;
   display: flex;
   justify-content: space-between;
 `;
@@ -41,11 +42,12 @@ const ItemLogo = styled.li`
   display: flex;
   align-items: center;
   width: 30%;
+  height: auto;
 `;
 
 const Img = styled.img`
   width: 100%;
-  max-height: 75px;
+  height: auto;
 `;
 
 export default withRouter(({ location: { pathname } }) => (
